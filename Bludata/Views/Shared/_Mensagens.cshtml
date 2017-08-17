@@ -1,0 +1,75 @@
+﻿@using Bludata.Enum
+@using Bludata.Extension
+@{
+    Dictionary<TipoMensagem, IEnumerable<string>> dictionary = new Dictionary<TipoMensagem, IEnumerable<string>>();
+
+    var erros = Html.BuscarMensagem(TipoMensagem.Erro);
+    if (erros != null)
+    {
+        dictionary[TipoMensagem.Erro] = erros;
+    }
+    var alerta = Html.BuscarMensagem(TipoMensagem.Alerta);
+    if (alerta != null)
+    {
+        dictionary[TipoMensagem.Alerta] = alerta;
+    }
+    var successo = Html.BuscarMensagem(TipoMensagem.Successo);
+    if (successo != null)
+    {
+        dictionary[TipoMensagem.Successo] = successo;
+    }
+    var info = Html.BuscarMensagem(TipoMensagem.Informacao);
+    if (info != null)
+    {
+        dictionary[TipoMensagem.Informacao] = info;
+    }
+}
+<!-- Erros -->
+@foreach (var item in dictionary)
+{
+    var nomeClass = string.Empty;
+    var titulo = string.Empty;
+    var nomeIcon = string.Empty;
+    switch (item.Key)
+    {
+        case TipoMensagem.Successo:
+            titulo = "Sucesso";
+            nomeClass = "success";
+            nomeIcon = "glyphicon-ok";
+            break;
+        case TipoMensagem.Erro:
+            titulo = "Erro";
+            nomeClass = "danger";
+            nomeIcon = "glyphicon-remove";
+            break;
+        case TipoMensagem.Alerta:
+            titulo = "Alerta";
+            nomeClass = "warning";
+            nomeIcon = "glyphicon-warning-sign";
+            break;
+        case TipoMensagem.Informacao:
+            titulo = "Informação";
+            nomeClass = "info";
+            nomeIcon = "glyphicon-info-sign";
+            break;
+    }
+
+    <div class="alert alert-@nomeClass alert-dismissable">
+        <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
+        @if (item.Value.Count() > 1)
+        {
+            <strong><span class="glyphicon @nomeIcon"></span> @titulo:</strong>
+            <ul>
+                @foreach (string message in item.Value)
+                    {
+                    <li>@Html.Raw(message)</li>
+                }
+            </ul>
+        }
+        else
+        {
+            <strong><span class="glyphicon @nomeIcon"></span> @titulo:</strong>
+            @Html.Raw(item.Value.First())
+        }
+    </div>
+}

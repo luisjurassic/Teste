@@ -1,0 +1,214 @@
+﻿* {
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-size: 14px;
+}
+
+body {
+    padding-top: 55px;
+    padding-bottom: 20px;
+}
+
+.body-content {
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 40px;
+    margin-top: 0px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.dl-horizontal dt {
+    white-space: normal;
+}
+
+hr {
+    margin-top: 20px;
+    margin-bottom: 20px;
+    border: 0;
+    border-top: 1px solid #e6e6e6;
+}
+
+.alert {
+    margin: 10px !important;
+}
+
+.titulo, h2 {
+    display: inline-block !important;
+}
+
+.footer {
+    position: fixed;
+    left: 0px;
+    bottom: 0px;
+    height: 60px;
+    width: 100%;
+    padding: 10px;
+    background: #31c386;
+    text-align: center;
+    border-top: 1px solid #2b9f6e;
+    color: #fff;
+}
+
+/*Link's*/
+a {
+    color: #31c386;
+    text-decoration: none;
+}
+
+    a:hover, a:focus {
+        color: #2b9f6e;
+        text-decoration: underline;
+    }
+
+/*Mensages*/
+.danger {
+    background-color: #ffdddd;
+    border-left: 6px solid #f44336;
+}
+
+.success {
+    background-color: #ddffdd;
+    border-left: 6px solid #4CAF50;
+}
+
+.info {
+    background-color: #e7f3fe;
+    border-left: 6px solid #2196F3;
+}
+
+.warning {
+    background-color: #ffffcc;
+    border-left: 6px solid #ffeb3b;
+}
+
+/*Botão*/
+.btn {
+    border-radius: 1px;
+    border: 0px;
+    border-left: 5px solid #2b9f6e;
+    background-color: #31c386;
+    font-size: 18px;
+    width: 100%;
+    padding: 8.5px 10px;
+    color: #fff;
+}
+
+    .btn:hover {
+        background-color: #2b9f6e;
+        color: #fff;
+    }
+
+/*Campo de texto*/
+.form-control {
+    border-radius: 1px;
+    font-size: 18px;
+    height: 42px;
+}
+
+    .form-control:focus {
+        border-color: rgba(76, 175, 80, 0.7);
+        outline: 0;
+        -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(76, 175, 80, 0.6);
+        box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075), 0 0 8px rgba(76, 175, 80, 0.6);
+    }
+
+/*Painel*/
+.panel {
+    border: 1px solid #2b9f6e;
+    border-radius: 1px !important;
+}
+
+.panel-group {
+    margin: 10px 0px;
+}
+
+#headPanel > .panel-title > a,
+#headPanel > .panel-title > a > i {
+    font-size: 20px !important;
+}
+
+    #headPanel > .panel-title > a:hover,
+    #headPanel > .panel-title > a:focus {
+        text-decoration: none !important;
+        color: #fff;
+    }
+
+.panel-default > .panel-heading {
+    background: #31c386;
+    color: #fff;
+    border-top-right-radius: 1px;
+    border-top-left-radius: 1px;
+}
+
+.form-group-panel {
+    margin: 15px 5px;
+}
+
+/*Cabeçalho*/
+navbar, .navbar-inverse, .navbar-header {
+    background: #31c386;
+    border-color: #2b9f6e;
+}
+
+    .navbar-inverse .navbar-text {
+        font-size: 14pt !important;
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-brand {
+        color: #fff;
+    }
+
+    .navbar-inverse .navbar-nav > li > a {
+        font-size: 14pt !important;
+        color: #fff;
+        min-height: 57px;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #2b9f6e;
+            background: #fff;
+            border-bottom: 5px solid #2b9f6e;
+        }
+
+@media (max-width:768px) {
+    .navbar-inverse .navbar-nav > li > a {
+        padding: 20px;
+    }
+
+        .navbar-inverse .navbar-nav > li > a:hover,
+        .navbar-inverse .navbar-nav > li > a:focus {
+            color: #2b9f6e;
+            background: #fff;
+            border: 0px;
+            border-left: 5px solid #2b9f6e;
+        }
+}
+
+.container > .navbar-collapse {
+    background: #31c386;
+    border-color: #2b9f6e;
+}
+
+.navbar-inverse .navbar-toggle {
+    border: 0px #2b9f6e;
+    border-radius: 1px;
+}
+
+    .navbar-inverse .navbar-toggle:hover,
+    .navbar-inverse .navbar-toggle:focus {
+        background-color: #2b9f6e;
+        border-radius: 1px;
+    }
+
+.navbar-toggle .icon-bar {
+    display: block;
+    width: 30px;
+    height: 4px;
+    border-radius: 1px;
+}
+
+    .navbar-toggle .icon-bar + .icon-bar {
+        margin-top: 4px;
+    }

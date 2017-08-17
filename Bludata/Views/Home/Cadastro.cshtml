@@ -1,0 +1,97 @@
+﻿@model  Bludata.Models.CadastroViewModels
+
+@{
+    ViewBag.Title = "Cadastro";
+}
+
+<div class="titulo">
+    <h2>Cadastro</h2>
+    <h2 id="hUf">@Session["RodandoEstado"]</h2>
+</div>
+<hr />
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Nome, new
+           {
+               @class = "form-control",
+               @placeholder = "Nome"
+           })
+                @Html.ValidationMessageFor(model => model.Nome, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Cpf, new
+           {
+               @maxlength = "14",
+               @class = "form-control",
+               @onblur = "ValidarCPF(Cpf,false)",
+               @onkeyup = "MascaraCPF(Cpf)",
+               @placeholder = "CPF"
+           })
+                @Html.ValidationMessageFor(model => model.Cpf, "", new { @class = "text-danger", @id = "valCpf" })
+            </div>
+        </div>
+
+        <div class="form-group" id="divRg">
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Rg, new
+           {
+               @maxlength = "9",
+               @class = "form-control",
+               @onkeyup = "MascaraRgSC(Rg)",
+               @placeholder = "Registro Geral"
+           })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.DataNascimento, new
+           {
+               @type = "text",
+               @onfocus = "ConverterEmCampoData(this)",
+               @maxlength = "10",
+               @class = "form-control",
+               @onblur = "VerificarIdade(DataNascimento)",
+               @placeholder = "Data de Nascimento"
+           })
+                @Html.ValidationMessageFor(model => model.DataNascimento, "", new { @class = "text-danger", @id = "valData" })
+            </div>
+        </div>
+
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                @Html.TextBoxFor(model => model.Telefone, new
+           {
+               @maxlength = "15",
+               @class = "form-control",
+               @onkeyup = "MascaraTelefone(Telefone)",
+               @onblur = "ValidaTelefone(Telefone)",
+               @placeholder = "Telefone"
+           })
+                @Html.ValidationMessageFor(model => model.Telefone, "", new { @class = "text-danger", @id = "valTelefone" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-sm-5">
+                <input id="btnSave" type="submit"  value="Salvar" class="btn" />
+            </div>
+        </div>
+    </div>
+}
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+    @Scripts.Render("~/bundles/site")
+}
